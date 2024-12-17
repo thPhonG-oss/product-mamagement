@@ -1,0 +1,22 @@
+mixin form-change-multi(path)
+    form(
+            action=path
+            form-change-multi
+            method="POST"
+        )
+            .d-flex.algin-items-start
+                .form-group
+                    select(name="type" class="form-control")
+                        option(disabled selected) -- Select Option --
+                        option(value="active") In Stock 
+                        option(value="inactive") Low Stock
+                        option(value="delete") Delete 
+                        option(value="change-position") Change Position
+                .form-group 
+                    input(
+                        type="text" 
+                        name="ids" 
+                        class="form-control d-none" 
+                        value=""
+                    )
+                button(type="submit" class="btn btn-primary") Apply

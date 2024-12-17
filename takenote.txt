@@ -1,0 +1,41 @@
+1. tạo dự án
+2. khởi tạo: npm init 
+3. cài express: npm i express 
+4. cài nodemon: npm i --save-dev nodemon 
+5. Sửa file package.json ở mục script: "start":"nodemon --inspect index.js"
+6. tạo file index.js trong thư mục gốc
+
+7. cài đặt pug 
+8. tạo views
+9. Cấu hình folder routes:
+[
+- ./client/index.route.js là file tổng chứa tất cả các route của project 
+- 
+]
+
+
+
+10.Cấu hình folder controllers :
+[
+    khi khớp với routing thì chạy vào controller tương ứng (req, res)=>{} đây chính là controller
+    - tạo folder controllers
+
+]
+
+11. Cấu hình .env :
+[
+    - tạo file .env
+    - cấu hình các biến môi trường 
+    - cài dotenv: npm i dotenv
+]
+12. Cấu trúc lại folder pug 
+
+13. To chuc thu muc views. 
+
+
+ app locals => express api docs 5  :  tạo ra biến toàn cục
+
+
+href="javascript:;" để thẻ a không chuyển trang
+ * get sẽ gửi data thông qua route
+ nên dùng put/patch : cài thư viện npm i  method-override

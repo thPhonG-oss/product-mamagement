@@ -1,0 +1,16 @@
+doctype html
+html
+    head
+        title #{title}
+        //- So when you use #{title} in your Pug template, it's accessing the title property that was 
+        //- passed in the render object. This is part of Pug's template engine functionality and 
+        //- how it handles data passing between controllers and views.
+        //- If you don't pass a title variable when rendering, #{title} would render as undefined or empty in the template.
+        link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css")
+
+        link(rel="stylesheet", href="/css/style.css")
+    body
+        include ../partials/header
+        block content
+        include ../partials/footer
+        script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js")

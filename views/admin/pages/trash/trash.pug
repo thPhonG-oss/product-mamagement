@@ -1,0 +1,56 @@
+extends ../../layouts/default 
+include ../../mixins/pagination.pug
+block content 
+    h1.mb-4 SẢN PHẨM ĐÃ XÓA
+
+    .card.mb-3
+        .card-header Danh sách sản phẩm đã xóa
+        .card-body 
+            table.table.table-hover.table-bordered
+                thead.table-dark
+                    tr 
+                        th STT
+                        th Hình ảnh
+                        th Tiêu đề
+                        th Giá
+                        th Trạng thái
+                        th Hành động
+
+                tbody 
+                    if delProducts.length > 0
+                        each item, index in delProducts
+                            tr 
+                                td #{index + 1}
+                                td 
+                                    img(
+                                        src=item.thumbnail
+                                        alt=item.title
+                                        width="100px"
+                                        height="auto"
+                                    )
+                                td #{item.title}
+                                td #{item.price}$
+                                td 
+                                    span.badge.bg-danger Đã xóa
+                                td 
+                                    button(
+                                        class="btn btn-primary btn-sm"
+                                        button-restore
+                                        data-id=item.id
+                                    ) Khôi phục
+                                    button(
+                                        class="btn btn-danger btn-sm ms-1"
+                                        button-delete
+                                        data-id=item.id
+                                    ) Xóa vĩnh viễn
+                    else 
+                        tr
+                            td.text-center(colspan="6") Không có sản phẩm nào trong thùng rác
+    +pagination(pagination)
+    form(
+        action=""
+        method="POST"
+        id="form-restore"
+        data-path=`${prefixAdmin}/trash/restore`
+    )
+    script(src="/admin/js/trash.js")
